@@ -11,6 +11,18 @@ class UserController extends Controller
     public function __construct(protected UserService $userService)
     {
     }
+
+    public function index(): JsonResponse
+    {
+        try {
+            $users = $this->userService->getUsers();
+
+            return response()->json($users);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+    }
+
     
     public function store(CreateUserRequest $request): JsonResponse
     {

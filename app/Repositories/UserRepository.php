@@ -12,6 +12,11 @@ class UserRepository
     {
     }
 
+    public function getUsers(): Collection
+    {
+        return $this->model->with('roles')->get();
+    }
+
     public function create(array $attributes): User
     {
         $user = $this->model->create($attributes);

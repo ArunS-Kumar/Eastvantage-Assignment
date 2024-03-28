@@ -12,6 +12,11 @@ class UserService
     {
     }
 
+    public function getUsers(): Collection
+    {
+        return $this->userRepository->getUsers();
+    }
+
     public function createUser(array $data): User
     {
         return $this->userRepository->create($data);

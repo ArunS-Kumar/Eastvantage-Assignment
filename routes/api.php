@@ -16,6 +16,7 @@ use App\Http\Controllers\RoleController;
 */
 
 Route::prefix('users')->group(function () {
+    Route::get('/', [UserController::class, 'index']);
     Route::post('/', [UserController::class, 'store']);
     Route::get('/{role}', [UserController::class, 'getUsersByRole']);
 });
